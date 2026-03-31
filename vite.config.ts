@@ -6,15 +6,6 @@ import path from "path";
 export default defineConfig(async ({ mode }) => {
   const plugins = [react()];
 
-  if (mode === "development") {
-    try {
-      const { componentTagger } = await import("-tagger");
-      plugins.push(componentTagger());
-    } catch (error) {
-      console.warn("Component tagger not available:", error);
-    }
-  }
-
   return {
     server: {
       host: "::",
